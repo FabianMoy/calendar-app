@@ -55,7 +55,7 @@ const loginUsuario = async( req, res = response) => {
         if ( !usuario ){
             return res.status(400).json({
                 ok: false,
-                msg: 'El usuario no existe con ese email'
+                msg: 'Correo o contraseñas incorrectos'
             })
         }
 
@@ -66,7 +66,7 @@ const loginUsuario = async( req, res = response) => {
         if (!validPassword){
             return res.status(400).json({
             ok: false,
-            msg: 'Password incorrecto'
+            msg: 'Correo o contraseñas incorrectos'
             })
         }
 
@@ -100,7 +100,9 @@ const revalidarToken = async( req, res = response) => {
 
     res.json({
         ok: true,
-        token
+        token,
+        uid,
+        name
     })
 }
 
